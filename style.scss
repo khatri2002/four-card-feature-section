@@ -1,0 +1,159 @@
+// Primary Colors
+$red: hsl(0, 78%, 62%);
+$cyan: hsl(180, 62%, 55%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+
+// Neutral Colors
+$very-dark-blue: hsl(234, 12%, 34%);
+$grayish-blue: hsl(229, 6%, 66%);
+$very-light-gray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+// breakpoints
+$md: 768px;
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    main {
+        min-height: 100vh;
+        background-color: $very-light-gray;
+        font-family: "Poppins", sans-serif;
+        padding-top: 5rem;
+
+        .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1 {
+                margin-block: 0;
+                color: $very-dark-blue;
+            }
+
+            .title-thin {
+                font-weight: 200;
+            }
+
+            .title-thick {
+                font-weight: 600;
+            }
+
+            .desc {
+                color: $grayish-blue;
+                width: 35rem;
+                text-align: center;
+            }
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 2rem;
+            padding-inline: 10vw;
+            gap: 2rem;
+
+            .card {
+                background-color: $white;
+                padding: max(2.2vw, 1.8rem) max(2.2vw, 1.7rem);
+                border-radius: 10px;
+                box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+                position: relative;
+                
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 99%;
+                    height: 3px;
+                    left: 0;
+                    right: 0;
+                    margin-inline: auto;
+                    top: 0;
+                    border-top-right-radius: 15px;
+                    border-top-left-radius: 15px;
+                }
+
+                .title {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    margin-block: 0;
+                }
+
+                .desc {
+                    font-size: 0.8rem;
+                    color: $grayish-blue;
+                    width: 90%;
+                }
+
+                .img-container {
+                    margin-top: 1.5rem;
+                    display: flex;
+                    justify-content: end;
+                }
+
+                &.supervisor-card, &.calculator-card {
+                    grid-row: 1 / span 2;
+                    align-self: center;
+                }
+
+                &.calculator-card {
+                    grid-column-start: 3;
+                }
+
+                &.supervisor-card::before {
+                    background-color: $cyan;
+                }
+                &.team-builder-card::before {
+                    background-color: $red;
+                }
+                &.calculator-card::before {
+                    background-color: $blue;
+                }
+                &.calculator-card::before {
+                    background-color: $blue;
+                }
+                &.karma-card::before {
+                    background-color: $orange;
+                }
+            }
+        }
+
+        @media only screen and (width <= $md) {
+            padding-bottom: 5rem;
+
+            .heading {
+                h1 {
+                    font-size: 1.6rem;
+                }
+
+                .desc {
+                    width: 90vw;
+                    font-size: 0.8rem;
+                }
+            }
+
+            .box-container {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                
+                .card .img-container img {
+                    width: 3rem;
+                }
+
+                .supervisor-card {
+                    grid-row: 1 !important;
+                }
+
+                .calculator-card {
+                    grid-column-start: auto !important;
+                    grid-row: 4 !important;
+                }
+            }
+        }
+    }
+}

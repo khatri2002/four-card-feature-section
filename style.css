@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+body main {
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 98%);
+  font-family: "Poppins", sans-serif;
+  padding-top: 5rem;
+}
+body main .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main .heading h1 {
+  margin-block: 0;
+  color: hsl(234, 12%, 34%);
+}
+body main .heading .title-thin {
+  font-weight: 200;
+}
+body main .heading .title-thick {
+  font-weight: 600;
+}
+body main .heading .desc {
+  color: hsl(229, 6%, 66%);
+  width: 35rem;
+  text-align: center;
+}
+body main .box-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+  padding-inline: 10vw;
+  gap: 2rem;
+}
+body main .box-container .card {
+  background-color: hsl(0, 0%, 100%);
+  padding: max(2.2vw, 1.8rem) max(2.2vw, 1.7rem);
+  border-radius: 10px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+body main .box-container .card::before {
+  content: "";
+  position: absolute;
+  width: 99%;
+  height: 3px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  top: 0;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+body main .box-container .card .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-block: 0;
+}
+body main .box-container .card .desc {
+  font-size: 0.8rem;
+  color: hsl(229, 6%, 66%);
+  width: 90%;
+}
+body main .box-container .card .img-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: end;
+}
+body main .box-container .card.supervisor-card, body main .box-container .card.calculator-card {
+  grid-row: 1/span 2;
+  align-self: center;
+}
+body main .box-container .card.calculator-card {
+  grid-column-start: 3;
+}
+body main .box-container .card.supervisor-card::before {
+  background-color: hsl(180, 62%, 55%);
+}
+body main .box-container .card.team-builder-card::before {
+  background-color: hsl(0, 78%, 62%);
+}
+body main .box-container .card.calculator-card::before {
+  background-color: hsl(212, 86%, 64%);
+}
+body main .box-container .card.calculator-card::before {
+  background-color: hsl(212, 86%, 64%);
+}
+body main .box-container .card.karma-card::before {
+  background-color: hsl(34, 97%, 64%);
+}
+@media only screen and (width <= 768px) {
+  body main {
+    padding-bottom: 5rem;
+  }
+  body main .heading h1 {
+    font-size: 1.6rem;
+  }
+  body main .heading .desc {
+    width: 90vw;
+    font-size: 0.8rem;
+  }
+  body main .box-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  body main .box-container .card .img-container img {
+    width: 3rem;
+  }
+  body main .box-container .supervisor-card {
+    grid-row: 1 !important;
+  }
+  body main .box-container .calculator-card {
+    grid-column-start: auto !important;
+    grid-row: 4 !important;
+  }
+}/*# sourceMappingURL=style.css.map */
